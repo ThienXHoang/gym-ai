@@ -4,17 +4,23 @@ import Onboarding from "./pages/Onboarding.tsx";
 import Profile from "./pages/Profile.tsx";
 import Auth from "./pages/Auth.tsx";
 import Account from "./pages/Account.tsx";
+import Navbar from "./components/Navbar.tsx";
 
 function App() {
   return (
       <BrowserRouter>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/onboarding" element={<Onboarding />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/auth/:pathname" element={<Auth />} />
-          <Route path="/account/:pathname" element={<Account />} />
-        </Routes>
+          <div className="min-h-screen flex flex-col">
+              <main className="flex-1">
+                  <Navbar />
+                  <Routes>
+                      <Route index element={<Home />} />
+                      <Route path="/onboarding" element={<Onboarding />} />
+                      <Route path="/profile" element={<Profile />} />
+                      <Route path="/auth/:pathname" element={<Auth />} />
+                      <Route path="/account/:pathname" element={<Account />} />
+                  </Routes>
+              </main>
+          </div>
       </BrowserRouter>
   )
 }
